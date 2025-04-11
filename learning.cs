@@ -85,3 +85,30 @@ public class Solution {
 
 namesapce Task4
 
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+
+        var numsDict = new Dictionary<int, int>();
+
+        for (int i = 0; i < nums.Length; i++) {
+
+            int need = target - nums[i];
+
+            if (numsDict.ContainsKey(need)) {
+
+                return new int[] {numsDict[need], i};
+
+            }
+
+            numsDict[nums[i]] = i;
+
+        }
+
+        return null;
+
+
+    }
+}
+
+namespace Task5
+
