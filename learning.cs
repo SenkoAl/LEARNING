@@ -112,3 +112,31 @@ public class Solution {
 
 namespace Task5
 
+public class Solution {
+    public List<List<string>> GroupAnagrams(string[] strs) {
+
+        Dictionary<string, List<string>> eachWord = new Dictionary<string, List<string>>();
+
+        foreach (string word in strs) {
+            char[] letterWord = word.ToCharArray();
+            Array.Sort(letterWord);
+            string sortedWord = new string(letterWord);
+            
+            if (eachWord.ContainsKey(sortedWord)) {
+                eachWord[sortedWord].Add(word);
+            }
+            else {
+                eachWord[sortedWord] = new List<string> { word };
+            }
+        }
+
+        return eachWord.Values.ToList();
+
+        
+        
+    }
+}
+
+namespace Task6
+
+
