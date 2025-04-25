@@ -139,4 +139,39 @@ public class Solution {
 
 namespace Task6
 
+public class Solution {
+    public string LongestCommonPrefix(string[] strs) {
+
+        if (strs.Length == 0) return "";
+
+        List<char> prefix = new List<char>();
+        string firstWord = strs[0];
+
+        for (int i = 0; i < firstWord.Length; i++) {
+            char currentChar = firstWord[i];
+            bool matchAll = true;
+
+            for (int j = 0; j < strs.Length; j++) {
+                string compareWord = strs[j];
+
+                if (i > compareWord.Length || compareWord[i] != currentChar) {
+                    matchAll = false;
+                    break;
+                }
+            }
+
+            if (matchAll) {
+                prefix.Add(currentChar);
+            }
+            else {
+                break;
+            }
+        }
+
+        return new string(prefix.ToArray());
+    }
+}
+
+namespace Task7
+
 
